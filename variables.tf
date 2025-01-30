@@ -1,0 +1,78 @@
+variable "azure_resource_attributes" {
+  description = "Attributes used to describe Azure resources"
+  type = object({
+    project     = string
+    environment = string
+    location    = optional(string, "Canada Central")
+    instance    = number
+  })
+  nullable = false
+}
+
+variable "service_principal_owners" {
+  description = "The Azure identities that will be configured as owners of the created Azure service principals."
+  type        = list(string)
+  default     = []
+}
+
+variable "tags" {
+  description = "Tags attached to Azure resource"
+  type        = map(string)
+  default     = {}
+}
+
+###################
+### AKS Cluster ###
+###################
+
+variable "cluster_node_resource_group_id" {
+  description = "The Azure resource ID of the Resource Group containing the resources for the AKS cluster."
+  type        = string
+}
+
+variable "cluster_identity_object_id" {
+  description = "The principal ID associated with AKS's Managed Service Identity."
+  type        = string
+}
+
+###############################
+### Networking Resource IDs ###
+###############################
+
+variable "networking_ids" {
+  description = "The Azure resource IDs for DNS Zones and subnets."
+  type = object({
+    dns_zones = object({
+      cloud_aurora_ca = string
+      blob_storage     = string
+    })
+    subnets = object({
+      infrastructure = string
+    })
+  })
+}
+
+##########################
+### Service principals ###
+##########################
+
+variable "grafana_sso_sp" {
+  description = "The members to configure on the Grafana SSO service principal"
+  type = object({
+    members = object({
+      viewer = optional(map(string))
+      editor = optional(map(string))
+      admin  = map(string)
+    })
+  })
+}
+
+##########################
+### Platform Resources ###
+##########################
+
+variable "bill_of_landing_managed_identity_id" {
+  description = "The members to configure on the Grafana SSO service principal"
+  type        = string
+  default     = null
+}
