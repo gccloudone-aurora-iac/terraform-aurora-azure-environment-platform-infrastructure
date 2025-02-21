@@ -43,8 +43,7 @@ variable "networking_ids" {
   description = "The Azure resource IDs for DNS Zones and subnets."
   type = object({
     dns_zones = object({
-      cloud_aurora_ca = string
-      blob_storage     = string
+      blob_storage = optional(string)
     })
     subnets = object({
       infrastructure = string
