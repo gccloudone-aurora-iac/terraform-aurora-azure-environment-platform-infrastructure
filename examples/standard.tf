@@ -77,6 +77,7 @@ module "platform_infrastructure" {
 
   networking_ids = {
     dns_zones = {
+      cert_manager     = "/subscriptions/99999999-9999-9999-9999-999999999999/resourceGroups/example-dns-rg/providers/Microsoft.Network/dnszones/example.ca"
       blob_storage     = azurerm_private_dns_zone.blob_storage.id
     }
     subnets = {

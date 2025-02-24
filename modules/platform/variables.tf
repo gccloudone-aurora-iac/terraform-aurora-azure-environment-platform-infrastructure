@@ -31,6 +31,7 @@ variable "cluster_identity_object_id" {
 variable "dns_zone_ids" {
   description = "The Azure resource ID of the public Azure DNS Zone used by the environment."
   type = object({
+    cert_manager     = string
     blob_storage     = string
   })
 }
