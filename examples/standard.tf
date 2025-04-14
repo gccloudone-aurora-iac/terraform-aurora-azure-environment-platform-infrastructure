@@ -48,10 +48,10 @@ resource "azurerm_private_dns_zone" "blob_storage" {
 # https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/user_assigned_identity
 #
 resource "azurerm_user_assigned_identity" "bill_of_landing" {
-  name                = "${module.azure_resource_prefixes.managed_identity_prefix}-bill-of-landing"
+  name                = "${module.azure_resource_names.managed_identity_name}-bill-of-landing"
   resource_group_name = azurerm_resource_group.platform.name
   location            = var.azure_resource_attributes.location
-  tags                = var.tags
+  tags                = {}
 }
 
 ##########################################
@@ -65,20 +65,27 @@ resource "azurerm_user_assigned_identity" "bill_of_landing" {
 module "platform_infrastructure" {
   source = "../"
 
+  naming_convention = "gc"
+  user_defined      = "example"
+
   azure_resource_attributes = {
-    project     = "aur"
-    environment = "dev"
-    location    = azurerm_resource_group.example.location
-    instance    = 0
+    department_code = "Gc"
+    owner           = "ABC"
+    project         = "aur"
+    environment     = "dev"
+    location        = azurerm_resource_group.example.location
+    instance        = 0
   }
 
   cluster_node_resource_group_id = azurerm_resource_group.example.id
   cluster_identity_object_id     = "2e1abffc-60c6-4bbe-9e3c-e051fde82af5"
 
+  grafana_sso_sp = {}
+
   networking_ids = {
     dns_zones = {
-      cert_manager     = "/subscriptions/99999999-9999-9999-9999-999999999999/resourceGroups/example-dns-rg/providers/Microsoft.Network/dnszones/example.ca"
-      blob_storage     = azurerm_private_dns_zone.blob_storage.id
+      cert_manager = "/subscriptions/99999999-9999-9999-9999-999999999999/resourceGroups/example-dns-rg/providers/Microsoft.Network/dnszones/example.ca"
+      blob_storage = azurerm_private_dns_zone.blob_storage.id
     }
     subnets = {
       infrastructure = azurerm_subnet.example.id

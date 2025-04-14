@@ -6,6 +6,8 @@ module "backup_rg" {
   source = "./modules/backup"
 
   azure_resource_attributes = var.azure_resource_attributes
+  naming_convention         = var.naming_convention
+  user_defined              = var.user_defined
 
   cluster_node_resource_group_id   = var.cluster_node_resource_group_id
   cluster_identity_object_id       = var.cluster_identity_object_id
@@ -23,6 +25,8 @@ module "platform_rg" {
   source = "./modules/platform"
 
   azure_resource_attributes = var.azure_resource_attributes
+  naming_convention         = var.naming_convention
+  user_defined              = var.user_defined
 
   cluster_identity_object_id = var.cluster_identity_object_id
   dns_zone_ids               = var.networking_ids.dns_zones

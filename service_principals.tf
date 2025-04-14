@@ -7,13 +7,15 @@
 # https://github.com/gccloudone-aurora-iac/terraform-azure-service-principal
 #
 module "argo_workflow_sso_sp" {
-  source = "git::https://github.com/gccloudone-aurora-iac/terraform-azure-service-principal.git?ref=v1.0.0"
+  source = "git::https://github.com/gccloudone-aurora-iac/terraform-azure-service-principal.git?ref=v2.0.0"
 
-  user_defined              = "argo-workflow"
   azure_resource_attributes = var.azure_resource_attributes
-  owners                    = var.service_principal_owners
+  naming_convention         = var.naming_convention
+  user_defined              = "argo-workflow"
 
-  web_redirect_uris = ["https://argo-workflows.${module.azure_resource_prefixes.prefix}.cloudnative.cloud.aurora.ca/oauth2/callback"]
+  owners = var.service_principal_owners
+
+  web_redirect_uris = ["https://argo-workflows.${module.azure_resource_names.name}.cloudnative.cloud.aurora.ca/oauth2/callback"]
 
   group_membership_claims = ["SecurityGroup", "ApplicationGroup"]
   optional_claims = {
@@ -38,11 +40,13 @@ module "argo_workflow_sso_sp" {
 # https://github.com/gccloudone-aurora-iac/terraform-azure-service-principal
 #
 module "kubecost_sp" {
-  source = "git::https://github.com/gccloudone-aurora-iac/terraform-azure-service-principal.git?ref=v1.0.0"
+  source = "git::https://github.com/gccloudone-aurora-iac/terraform-azure-service-principal.git?ref=v2.0.0"
 
-  user_defined              = "kubecost"
   azure_resource_attributes = var.azure_resource_attributes
-  owners                    = var.service_principal_owners
+  naming_convention         = var.naming_convention
+  user_defined              = "kubecost"
+
+  owners = var.service_principal_owners
 }
 
 # The KubecostRateCard role lets the identity access accurate Microsoft Azure billing data.
@@ -64,15 +68,17 @@ resource "azurerm_role_assignment" "kubecost_rate_card" {
 # https://github.com/gccloudone-aurora-iac/terraform-azure-service-principal
 #
 module "grafana_sso_sp" {
-  source = "git::https://github.com/gccloudone-aurora-iac/terraform-azure-service-principal.git?ref=v1.0.0"
+  source = "git::https://github.com/gccloudone-aurora-iac/terraform-azure-service-principal.git?ref=v2.0.0"
 
-  user_defined              = "grafana"
   azure_resource_attributes = var.azure_resource_attributes
-  owners                    = var.service_principal_owners
+  naming_convention         = var.naming_convention
+  user_defined              = "grafana"
+
+  owners = var.service_principal_owners
 
   web_redirect_uris = [
-    "https://grafana.${module.azure_resource_prefixes.prefix}.cloudnative.cloud.aurora.ca/login/azuread",
-    "https://grafana.${module.azure_resource_prefixes.prefix}.cloudnative.cloud.aurora.ca"
+    "https://grafana.${module.azure_resource_names.name}.cloudnative.cloud.aurora.ca/login/azuread",
+    "https://grafana.${module.azure_resource_names.name}.cloudnative.cloud.aurora.ca"
   ]
 
   group_membership_claims = ["SecurityGroup", "ApplicationGroup"]

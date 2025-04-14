@@ -3,11 +3,13 @@
 ############
 
 module "velero_storage_account" {
-  source = "git::https://github.com/gccloudone-aurora-iac/terraform-azure-storage-account.git?ref=v1.0.0"
+  source = "git::https://github.com/gccloudone-aurora-iac/terraform-azure-storage-account.git?ref=v2.0.0"
 
   azure_resource_attributes = var.azure_resource_attributes
+  naming_convention         = var.naming_convention
   user_defined              = "velero"
-  resource_group_name       = azurerm_resource_group.backup.name
+
+  resource_group_name = azurerm_resource_group.backup.name
 
   public_network_access_enabled = false
   private_endpoints = [
@@ -33,7 +35,7 @@ module "velero_storage_account" {
 # https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/user_assigned_identity
 #
 resource "azurerm_user_assigned_identity" "velero" {
-  name                = "${module.azure_resource_prefixes.managed_identity_prefix}-velero"
+  name                = "${module.azure_resource_names.managed_identity_name}-velero"
   resource_group_name = azurerm_resource_group.backup.name
   location            = var.azure_resource_attributes.location
   tags                = var.tags

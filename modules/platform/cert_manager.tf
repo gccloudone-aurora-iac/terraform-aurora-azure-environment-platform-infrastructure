@@ -3,7 +3,7 @@
 # https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/user_assigned_identity
 #
 resource "azurerm_user_assigned_identity" "cert_manager" {
-  name                = "${module.azure_resource_prefixes.managed_identity_prefix}-cert-manager"
+  name                = "${module.azure_resource_names.managed_identity_name}-cert-manager"
   resource_group_name = azurerm_resource_group.platform.name
   location            = var.azure_resource_attributes.location
   tags                = var.tags
