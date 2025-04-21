@@ -55,21 +55,21 @@ resource "azurerm_role_assignment" "velero_storage_key_operator" {
 #
 # https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment
 #
-resource "azurerm_role_assignment" "velero_snapshot_management" {
-  scope                = azurerm_resource_group.backup.id
-  role_definition_name = "Velero Snapshot Management"
-  principal_id         = azurerm_user_assigned_identity.velero.principal_id
-}
+# resource "azurerm_role_assignment" "velero_snapshot_management" {
+#   scope                = azurerm_resource_group.backup.id
+#   role_definition_name = "Velero Snapshot Management"
+#   principal_id         = azurerm_user_assigned_identity.velero.principal_id
+# }
 
 # Assigns a given Principal (User or Group) to a given Role.
 #
 # https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment
 #
-resource "azurerm_role_assignment" "velero_disk_management" {
-  scope                = var.cluster_node_resource_group_id
-  role_definition_name = "Velero Disk Management"
-  principal_id         = azurerm_user_assigned_identity.velero.principal_id
-}
+# resource "azurerm_role_assignment" "velero_disk_management" {
+#   scope                = var.cluster_node_resource_group_id
+#   role_definition_name = "Velero Disk Management"
+#   principal_id         = azurerm_user_assigned_identity.velero.principal_id
+# }
 
 # Assigns a given Principal (User or Group) to a given Role.
 #

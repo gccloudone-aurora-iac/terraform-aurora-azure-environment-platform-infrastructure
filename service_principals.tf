@@ -53,11 +53,11 @@ module "kubecost_sp" {
 #
 # https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment
 #
-resource "azurerm_role_assignment" "kubecost_rate_card" {
-  role_definition_name = "KubecostRateCard"
-  principal_id         = module.kubecost_sp.service_principal.object_id
-  scope                = data.azurerm_subscription.current.id
-}
+# resource "azurerm_role_assignment" "kubecost_rate_card" {
+#   role_definition_name = "KubecostRateCard"
+#   principal_id         = module.kubecost_sp.service_principal.object_id
+#   scope                = data.azurerm_subscription.current.id
+# }
 
 ###############
 ### Grafana ###
