@@ -3,7 +3,7 @@
 # https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group
 #
 resource "azurerm_resource_group" "backup" {
-  name     = "${module.azure_resource_names.resource_group_name}-backup"
+  name     = "${module.azure_resource_names.resource_group_backup_name}"
   location = var.azure_resource_attributes.location
   tags     = var.tags
 
