@@ -11,7 +11,7 @@ module "argo_workflows_storage_account" {
 
   azure_resource_attributes = var.azure_resource_attributes
   naming_convention         = var.naming_convention
-  user_defined              = "workflows"
+  user_defined              = "ARGO"
 
   resource_group_name = azurerm_resource_group.platform.name
 
