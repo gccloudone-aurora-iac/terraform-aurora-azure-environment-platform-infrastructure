@@ -65,3 +65,4 @@ Examples for this module along with various configurations can be found in the [
 | Date       | Release | Change                                                                                                              |
 | ---------- | ------- | ------------------------------------------------------------------------------------------------------------------- |
 | 2025-01-25 | v1.0.0  | initial commit                                                                                                      |
+| 2025-10-01 | v2.0.1  | Uncomment the custom role assignments for Velero disk & snapshot management                                         |
