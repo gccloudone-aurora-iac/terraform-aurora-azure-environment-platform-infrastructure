@@ -7,7 +7,7 @@
 # https://github.com/gccloudone-aurora-iac/terraform-azure-service-principal
 #
 module "argo_workflow_sso_sp" {
-  source = "git::https://github.com/gccloudone-aurora-iac/terraform-azure-service-principal.git?ref=v2.0.0"
+  source = "git::https://github.com/gccloudone-aurora-iac/terraform-azure-service-principal.git?ref=v2.0.1"
 
   azure_resource_attributes = var.azure_resource_attributes
   naming_convention         = var.naming_convention
@@ -40,7 +40,7 @@ module "argo_workflow_sso_sp" {
 # https://github.com/gccloudone-aurora-iac/terraform-azure-service-principal
 #
 module "kubecost_sp" {
-  source = "git::https://github.com/gccloudone-aurora-iac/terraform-azure-service-principal.git?ref=v2.0.0"
+  source = "git::https://github.com/gccloudone-aurora-iac/terraform-azure-service-principal.git?ref=v2.0.1"
 
   azure_resource_attributes = var.azure_resource_attributes
   naming_convention         = var.naming_convention
@@ -68,7 +68,7 @@ module "kubecost_sp" {
 # https://github.com/gccloudone-aurora-iac/terraform-azure-service-principal
 #
 module "grafana_sso_sp" {
-  source = "git::https://github.com/gccloudone-aurora-iac/terraform-azure-service-principal.git?ref=v2.0.0"
+  source = "git::https://github.com/gccloudone-aurora-iac/terraform-azure-service-principal.git?ref=v2.0.1"
 
   azure_resource_attributes = var.azure_resource_attributes
   naming_convention         = var.naming_convention
