@@ -16,8 +16,6 @@ module "backup_rg" {
 
   oidc_issuer_url                  = var.oidc_issuer_url
 
-}
-
   tags = local.tags
 }
 
