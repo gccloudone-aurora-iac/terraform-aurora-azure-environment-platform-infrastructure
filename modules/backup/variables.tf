@@ -65,3 +65,9 @@ variable "infrastructure_subnet_id" {
   description = "The Azure resource ID of the infrastructure subnet where private endpoints will exist."
   type        = string
 }
+
+
+variable "oidc_issuer_url"{
+  description = "The OIDC issuer URL that is associated with the cluster."
+  type        = string
+}
