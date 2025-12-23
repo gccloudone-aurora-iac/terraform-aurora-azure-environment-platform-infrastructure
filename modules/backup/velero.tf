@@ -49,7 +49,7 @@ resource "azurerm_federated_identity_credential" "velero" {
   name                = "${module.azure_resource_names.managed_identity_name}-velero"
   resource_group_name = azurerm_resource_group.backup.name
   audience            = ["api://AzureADTokenExchange"]
-  issuer              = "https://foobar"
+  issuer              = var.oidc_issuer_url
   parent_id           = azurerm_user_assigned_identity.velero.id
   subject             = "system:serviceaccount:velero-system:velero-server"
 }
