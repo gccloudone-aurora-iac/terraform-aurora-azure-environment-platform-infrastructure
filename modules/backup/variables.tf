@@ -66,7 +66,6 @@ variable "infrastructure_subnet_id" {
   type        = string
 }
 
-
 variable "oidc_issuer_url"{
   description = "The OIDC issuer URL that is associated with the cluster."
   type        = string

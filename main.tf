@@ -14,6 +14,10 @@ module "backup_rg" {
   blob_storage_private_dns_zone_id = var.networking_ids.dns_zones.blob_storage
   infrastructure_subnet_id         = var.networking_ids.subnets.infrastructure
 
+  oidc_issuer_url                  = var.oidc_issuer_url
+
+}
+
   tags = local.tags
 }
 
