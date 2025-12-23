@@ -52,7 +52,6 @@ resource "azurerm_federated_identity_credential" "velero" {
   issuer              = "https://foobar"
   parent_id           = azurerm_user_assigned_identity.velero.id
   subject             = "system:serviceaccount:velero-system:velero-server"
-  tags                = var.tags
 }
 
 
