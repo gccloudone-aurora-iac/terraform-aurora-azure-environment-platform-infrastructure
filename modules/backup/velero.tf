@@ -41,6 +41,22 @@ resource "azurerm_user_assigned_identity" "velero" {
   tags                = var.tags
 }
 
+# Creates a Federate Identity Credential
+#
+# https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/federated_identity_credential
+#
+resource "azurerm_federated_identity_credential" "velero" {
+  name                = "${module.azure_resource_names.managed_identity_name}-velero"
+  resource_group_name = azurerm_resource_group.backup.name
+  audience            = ["api://AzureADTokenExchange"]
+  issuer              = "https://foobar"
+  parent_id           = azurerm_user_assigned_identity.velero.id
+  subject             = "system:serviceaccount:velero-system:velero-server"
+  tags                = var.tags
+}
+
+
+
 # Assigns a given Principal (User or Group) to a given Role.
 #
 # https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment
