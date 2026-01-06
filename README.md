@@ -68,3 +68,4 @@ Examples for this module along with various configurations can be found in the [
 | 2025-10-01 | v2.0.1  | Uncomment the custom role assignments for Velero disk & snapshot management                                         |
 | 2025-10-20 | v2.0.2  | Pin minimum version of azurerm to 4.49.0                                                                            |
 | 2025-12-24 | v2.0.3  | Federated identity credential setup for Velero                                                                      |
+| 2026-01-06 | v2.0.4  | Add additional permissions for velero operations                                                                    |
