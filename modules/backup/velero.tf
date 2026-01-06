@@ -70,6 +70,26 @@ resource "azurerm_role_assignment" "velero_storage_key_operator" {
 #
 # https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment
 #
+resource "azurerm_role_assignment" "velero_storage_blob_data_contributor" {
+  scope                = module.velero_storage_account.id
+  role_definition_name = "Storage Blob Data Contributor"
+  principal_id         = azurerm_user_assigned_identity.velero.principal_id
+}
+
+# Assigns a given Principal (User or Group) to a given Role.
+#
+# https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment
+#
+resource "azurerm_role_assignment" "velero_storage_reader" {
+  scope                = module.velero_storage_account.id
+  role_definition_name = "Reader and Data Access"
+  principal_id         = azurerm_user_assigned_identity.velero.principal_id
+}
+
+# Assigns a given Principal (User or Group) to a given Role.
+#
+# https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment
+#
 # NOTE: You MUST create a custom role in Azure. See https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure?tab=readme-ov-file#specify-role to see what permissions the Velero Snapshot Management role requires.
 #
 resource "azurerm_role_assignment" "velero_snapshot_management" {
