@@ -28,3 +28,16 @@ resource "azurerm_role_assignment" "aad_pod_identity_cert_manager_operator" {
   role_definition_name = "Managed Identity Operator"
   principal_id         = var.cluster_identity_object_id
 }
+
+# Creates a Federate Identity Credential
+#
+# https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/federated_identity_credential
+#
+resource "azurerm_federated_identity_credential" "cert_manager" {
+  name                = "${module.azure_resource_names.managed_identity_name}-cert-manager"
+  resource_group_name = azurerm_resource_group.platform.name
+  audience            = ["api://AzureADTokenExchange"]
+  issuer              = var.oidc_issuer_url
+  parent_id           = azurerm_user_assigned_identity.cert_manager.id
+  subject             = "system:serviceaccount:cert-manager-system:cert-manager"
+}
