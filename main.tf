@@ -37,5 +37,7 @@ module "platform_rg" {
   # platform resources
   bill_of_landing_managed_identity_id = var.bill_of_landing_managed_identity_id
 
+  oidc_issuer_url                  = var.oidc_issuer_url
+
   tags = local.tags
 }

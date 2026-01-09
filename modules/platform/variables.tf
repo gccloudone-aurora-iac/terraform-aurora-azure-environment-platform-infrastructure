@@ -73,3 +73,8 @@ variable "bill_of_landing_managed_identity_id" {
   type        = string
   default     = null
 }
+
+variable "oidc_issuer_url"{
+  description = "The OIDC issuer URL that is associated with the cluster."
+  type        = string
+}

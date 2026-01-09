@@ -70,3 +70,4 @@ Examples for this module along with various configurations can be found in the [
 | 2025-12-24 | v2.0.3  | Federated identity credential setup for Velero                                                                      |
 | 2026-01-06 | v2.0.4  | Add additional permissions for velero operations                                                                    |
 | 2026-01-08 | v2.0.5  | Federated identity credential setup for Cert Manager                                                                |
+| 2026-01-09 | v2.0.6  | Define variables to pass oidc issuer url Cert Manager workload identity                                             |
