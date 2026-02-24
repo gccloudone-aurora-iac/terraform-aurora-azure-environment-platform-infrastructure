@@ -14,6 +14,7 @@ resource "azurerm_user_assigned_identity" "cert_manager" {
 # https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment
 #
 resource "azurerm_role_assignment" "cert_manager_dns" {
+  count                = var.dns_zone_ids.cert_manager != null ? 1 : 0
   scope                = var.dns_zone_ids.cert_manager
   role_definition_name = "DNS Zone Contributor"
   principal_id         = azurerm_user_assigned_identity.cert_manager.principal_id
