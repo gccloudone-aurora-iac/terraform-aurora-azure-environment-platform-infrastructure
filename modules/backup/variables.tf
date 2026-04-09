@@ -70,3 +70,13 @@ variable "oidc_issuer_url"{
   description = "The OIDC issuer URL that is associated with the cluster."
   type        = string
 }
+
+####################
+### Custom Roles ###
+####################
+
+variable "create_custom_role_assignment" {
+  description = "Set to true to create the custom role assignments."
+  type        = bool
+  default     = true
+}

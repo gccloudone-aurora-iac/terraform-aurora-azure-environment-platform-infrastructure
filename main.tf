@@ -16,6 +16,8 @@ module "backup_rg" {
 
   oidc_issuer_url                  = var.oidc_issuer_url
 
+  create_custom_role_assignment    = var.create_custom_role_assignment
+
   tags = local.tags
 }
 
