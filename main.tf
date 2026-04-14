@@ -14,9 +14,9 @@ module "backup_rg" {
   blob_storage_private_dns_zone_id = var.networking_ids.dns_zones.blob_storage
   infrastructure_subnet_id         = var.networking_ids.subnets.infrastructure
 
-  oidc_issuer_url                  = var.oidc_issuer_url
+  oidc_issuer_url = var.oidc_issuer_url
 
-  create_custom_role_assignment    = var.create_custom_role_assignment
+  create_custom_role_assignment = var.create_custom_role_assignment
 
   tags = local.tags
 }
@@ -39,7 +39,7 @@ module "platform_rg" {
   # platform resources
   bill_of_landing_managed_identity_id = var.bill_of_landing_managed_identity_id
 
-  oidc_issuer_url                  = var.oidc_issuer_url
+  oidc_issuer_url = var.oidc_issuer_url
 
   tags = local.tags
 }
