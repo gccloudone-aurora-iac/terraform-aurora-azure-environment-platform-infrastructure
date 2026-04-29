@@ -81,6 +81,7 @@ module "platform_infrastructure" {
   cluster_identity_object_id     = "2e1abffc-60c6-4bbe-9e3c-e051fde82af5"
 
   grafana_sso_sp = {}
+  ingress_host = "example.ca"
 
   networking_ids = {
     dns_zones = {

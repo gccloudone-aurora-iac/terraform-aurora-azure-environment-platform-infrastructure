@@ -15,7 +15,7 @@ module "argo_workflow_sso_sp" {
 
   owners = var.service_principal_owners
 
-  web_redirect_uris = ["https://argo-workflows.${module.azure_resource_names.name}.cloudnative.cloud.aurora.ca/oauth2/callback"]
+  web_redirect_uris = ["https://argo-workflows.${var.ingress_host}/oauth2/callback"]
 
   group_membership_claims = ["SecurityGroup", "ApplicationGroup"]
   optional_claims = {
@@ -77,8 +77,8 @@ module "grafana_sso_sp" {
   owners = var.service_principal_owners
 
   web_redirect_uris = [
-    "https://grafana.${module.azure_resource_names.name}.cloudnative.cloud.aurora.ca/login/azuread",
-    "https://grafana.${module.azure_resource_names.name}.cloudnative.cloud.aurora.ca"
+    "https://grafana.${var.ingress_host}/login/azuread",
+    "https://grafana.${var.ingress_host}.cloudnative.cloud.aurora.ca"
   ]
 
   group_membership_claims = ["SecurityGroup", "ApplicationGroup"]
