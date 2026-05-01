@@ -90,6 +90,11 @@ variable "grafana_sso_sp" {
   })
 }
 
+variable "ingress_host" {
+  description = "The host name for ingress to the environment."
+  type        = string
+}
+
 ##########################
 ### Platform Resources ###
 ##########################
