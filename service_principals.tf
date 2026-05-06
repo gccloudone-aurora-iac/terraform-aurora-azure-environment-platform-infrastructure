@@ -29,6 +29,13 @@ module "argo_workflow_sso_sp" {
       name = "groups"
     }]
   }
+
+  api_permissions = {
+    graph = {
+      api_client_id = data.azuread_application_published_app_ids.well_known.result["MicrosoftGraph"]
+      scope_names   = ["User.Read"]
+    }
+  }
 }
 
 ################
@@ -109,6 +116,13 @@ module "grafana_sso_sp" {
       description = "Grafana admin Users"
       value       = "Admin"
       members     = var.grafana_sso_sp.members.admin
+    }
+  }
+
+  api_permissions = {
+    graph = {
+      api_client_id = data.azuread_application_published_app_ids.well_known.result["MicrosoftGraph"]
+      scope_names   = ["User.Read"]
     }
   }
 }
