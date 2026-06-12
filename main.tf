@@ -21,7 +21,7 @@ module "backup_rg" {
   tags = local.tags
 }
 
-# Creates the platform-rg Azure resource group and the nessessary platform components within it.
+# Creates the platform-rg Azure resource group and the necessary platform components within it.
 #
 # ./modules/platform-rg
 #
@@ -40,6 +40,7 @@ module "platform_rg" {
   bill_of_landing_managed_identity_id = var.bill_of_landing_managed_identity_id
 
   oidc_issuer_url = var.oidc_issuer_url
+  fed_id_subject  = var.fed_id_subject
 
   tags = local.tags
 }

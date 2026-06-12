@@ -111,6 +111,12 @@ variable "oidc_issuer_url" {
   type        = string
 }
 
+variable "fed_id_subject" {
+  description = "The subject for federated identity credentials for Thanos"
+  type        = string
+}
+
+
 ####################
 ### Custom Roles ###
 ####################

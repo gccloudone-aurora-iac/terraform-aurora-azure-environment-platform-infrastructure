@@ -49,3 +49,27 @@ output "argo_workflows_primary_blob_endpoint" {
   description = "The primary blob endpoint of the workflows storage account."
   value       = module.argo_workflows_storage_account.primary_blob_endpoint
 }
+
+##############
+### Thanos ###
+##############
+
+output "thanos_storage_account_id" {
+  description = "The ID of the Thanos storage account."
+  value       = module.thanos_storage_account.id
+}
+
+output "thanos_storage_account_name" {
+  description = "The name of the Thanos storage account."
+  value       = module.thanos_storage_account.name
+}
+
+output "thanos_primary_access_key" {
+  description = "The primary access key of the Thanos storage account."
+  value       = module.thanos_storage_account.primary_access_key
+}
+
+output "thanos_primary_blob_endpoint" {
+  description = "The primary blob endpoint of the Thanos storage account."
+  value       = module.thanos_storage_account.primary_blob_endpoint
+}
