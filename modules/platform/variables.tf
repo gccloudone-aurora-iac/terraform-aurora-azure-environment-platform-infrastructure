@@ -78,8 +78,3 @@ variable "oidc_issuer_url" {
   description = "The OIDC issuer URL that is associated with the cluster."
   type        = string
 }
-
-variable "fed_id_subject" {
-  description = "The subject for federated identity credentials for Thanos"
-  type        = string
-}

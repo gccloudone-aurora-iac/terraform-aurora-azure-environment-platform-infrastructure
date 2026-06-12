@@ -40,7 +40,6 @@ module "platform_rg" {
   bill_of_landing_managed_identity_id = var.bill_of_landing_managed_identity_id
 
   oidc_issuer_url = var.oidc_issuer_url
-  fed_id_subject  = var.fed_id_subject
 
   tags = local.tags
 }

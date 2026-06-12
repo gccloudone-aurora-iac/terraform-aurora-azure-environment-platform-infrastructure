@@ -22,7 +22,7 @@ module "thanos_storage_account" {
     }
   ]
 
-  account_replication_type = "RAGZRS"
+  account_replication_type = "ZRS"
   containers               = [local.thanos_sa_container_name]
   tags                     = var.tags
 }
@@ -32,7 +32,7 @@ module "thanos_storage_account" {
 # https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/user_assigned_identity
 resource "azurerm_user_assigned_identity" "thanos-id" {
   location            = azurerm_resource_group.platform.location
-  name                = "${module.azure_resource_names.managed_identity_name}-id-thanos"
+  name                = "${module.azure_resource_names.managed_identity_name}-thanos"
   resource_group_name = azurerm_resource_group.platform.name
 }
 
@@ -40,11 +40,12 @@ resource "azurerm_user_assigned_identity" "thanos-id" {
 # Match on subject is required
 # https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/federated_identity_credential
 resource "azurerm_federated_identity_credential" "thanos-fed-id" {
-  name      = "${module.azure_resource_names.managed_identity_name}-fed-id-thanos"
-  audience  = ["api://AzureADTokenExchange"]
-  issuer    = var.oidc_issuer_url
-  subject   = var.fed_id_subject
-  parent_id = azurerm_user_assigned_identity.thanos-id.id
+  name                = "${module.azure_resource_names.managed_identity_name}-fed-thanos"
+  audience = ["api://AzureADTokenExchange"]
+  issuer              = var.oidc_issuer_url
+  subject             = "system:serviceaccount:${local.prom_namespace}:${local.prom_sa}"
+  parent_id           = azurerm_user_assigned_identity.thanos-id.id
+  resource_group_name = azurerm_resource_group.platform.name
 }
 
 # Role authorization
