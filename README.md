@@ -57,38 +57,45 @@ Examples for this module along with various configurations can be found in the [
 
 ## Outputs
 
-| Name | Description |
-| ---- | ----------- |
-| <a name="output_argo_workflows_primary_access_key"></a> [argo\_workflows\_primary\_access\_key](#output\_argo\_workflows\_primary\_access\_key) | The primary access key of the workflows storage account. |
-| <a name="output_argo_workflows_primary_blob_endpoint"></a> [argo\_workflows\_primary\_blob\_endpoint](#output\_argo\_workflows\_primary\_blob\_endpoint) | The primary blob endpoint of the workflows storage account. |
-| <a name="output_argo_workflows_sso_sp"></a> [argo\_workflows\_sso\_sp](#output\_argo\_workflows\_sso\_sp) | Azure service principal used for SSO when logging into Argo Workflows. |
-| <a name="output_argo_workflows_storage_account_id"></a> [argo\_workflows\_storage\_account\_id](#output\_argo\_workflows\_storage\_account\_id) | The ID of the workflows storage account. |
-| <a name="output_argo_workflows_storage_account_name"></a> [argo\_workflows\_storage\_account\_name](#output\_argo\_workflows\_storage\_account\_name) | The name of the workflows storage account. |
-| <a name="output_backup_resource_group_id"></a> [backup\_resource\_group\_id](#output\_backup\_resource\_group\_id) | The ID of the backup resource group. |
-| <a name="output_backup_resource_group_name"></a> [backup\_resource\_group\_name](#output\_backup\_resource\_group\_name) | The name of the backup resource group. |
-| <a name="output_cert_manager_identity_client_id"></a> [cert\_manager\_identity\_client\_id](#output\_cert\_manager\_identity\_client\_id) | The client ID of the cert-manager user-assigned managed identity. |
-| <a name="output_cert_manager_identity_id"></a> [cert\_manager\_identity\_id](#output\_cert\_manager\_identity\_id) | The Azure resource ID of the cert-manager user-assigned managed identity. |
-| <a name="output_grafana_sso_sp"></a> [grafana\_sso\_sp](#output\_grafana\_sso\_sp) | Azure service principal used for SSO when logging into Grafana. |
-| <a name="output_kubecost_sp"></a> [kubecost\_sp](#output\_kubecost\_sp) | Azure service principal used to access accurate Microsoft Azure billing data. |
-| <a name="output_platform_resource_group_id"></a> [platform\_resource\_group\_id](#output\_platform\_resource\_group\_id) | The ID of the platform resource group. |
-| <a name="output_platform_resource_group_name"></a> [platform\_resource\_group\_name](#output\_platform\_resource\_group\_name) | The name of the platform resource group. |
-| <a name="output_velero_identity_client_id"></a> [velero\_identity\_client\_id](#output\_velero\_identity\_client\_id) | The client ID of the Velero user-assigned managed identity. |
-| <a name="output_velero_identity_id"></a> [velero\_identity\_id](#output\_velero\_identity\_id) | The Azure resource ID of the velero user-assigned managed identity. |
-| <a name="output_velero_storage_account_id"></a> [velero\_storage\_account\_id](#output\_velero\_storage\_account\_id) | The ID of the Velero storage account. |
-| <a name="output_velero_storage_account_name"></a> [velero\_storage\_account\_name](#output\_velero\_storage\_account\_name) | The name of the Azure storage account used to store Velero backups. |
+| Name | Description                                                                            |
+| ---- |----------------------------------------------------------------------------------------|
+| <a name="output_argo_workflows_primary_access_key"></a> [argo\_workflows\_primary\_access\_key](#output\_argo\_workflows\_primary\_access\_key) | The primary access key of the workflows storage account.                               |
+| <a name="output_argo_workflows_primary_blob_endpoint"></a> [argo\_workflows\_primary\_blob\_endpoint](#output\_argo\_workflows\_primary\_blob\_endpoint) | The primary blob endpoint of the workflows storage account.                            |
+| <a name="output_argo_workflows_sso_sp"></a> [argo\_workflows\_sso\_sp](#output\_argo\_workflows\_sso\_sp) | Azure service principal used for SSO when logging into Argo Workflows.                 |
+| <a name="output_argo_workflows_storage_account_id"></a> [argo\_workflows\_storage\_account\_id](#output\_argo\_workflows\_storage\_account\_id) | The ID of the workflows storage account.                                               |
+| <a name="output_argo_workflows_storage_account_name"></a> [argo\_workflows\_storage\_account\_name](#output\_argo\_workflows\_storage\_account\_name) | The name of the workflows storage account.                                             |
+| <a name="output_backup_resource_group_id"></a> [backup\_resource\_group\_id](#output\_backup\_resource\_group\_id) | The ID of the backup resource group.                                                   |
+| <a name="output_backup_resource_group_name"></a> [backup\_resource\_group\_name](#output\_backup\_resource\_group\_name) | The name of the backup resource group.                                                 |
+| <a name="output_cert_manager_identity_client_id"></a> [cert\_manager\_identity\_client\_id](#output\_cert\_manager\_identity\_client\_id) | The client ID of the cert-manager user-assigned managed identity.                      |
+| <a name="output_cert_manager_identity_id"></a> [cert\_manager\_identity\_id](#output\_cert\_manager\_identity\_id) | The Azure resource ID of the cert-manager user-assigned managed identity.              |
+| <a name="output_grafana_sso_sp"></a> [grafana\_sso\_sp](#output\_grafana\_sso\_sp) | Azure service principal used for SSO when logging into Grafana.                        |
+| <a name="output_kubecost_sp"></a> [kubecost\_sp](#output\_kubecost\_sp) | Azure service principal used to access accurate Microsoft Azure billing data.          |
+| <a name="output_platform_resource_group_id"></a> [platform\_resource\_group\_id](#output\_platform\_resource\_group\_id) | The ID of the platform resource group.                                                 |
+| <a name="output_platform_resource_group_name"></a> [platform\_resource\_group\_name](#output\_platform\_resource\_group\_name) | The name of the platform resource group.                                               |
+| <a name="output_velero_identity_client_id"></a> [velero\_identity\_client\_id](#output\_velero\_identity\_client\_id) | The client ID of the Velero user-assigned managed identity.                            |
+| <a name="output_velero_identity_id"></a> [velero\_identity\_id](#output\_velero\_identity\_id) | The Azure resource ID of the velero user-assigned managed identity.                    |
+| <a name="output_velero_storage_account_id"></a> [velero\_storage\_account\_id](#output\_velero\_storage\_account\_id) | The ID of the Velero storage account.                                                  |
+| <a name="output_velero_storage_account_name"></a> [velero\_storage\_account\_name](#output\_velero\_storage\_account\_name) | The name of the Azure storage account used to store Velero backups.                    |
 | <a name="output_velero_storage_bucket_name"></a> [velero\_storage\_bucket\_name](#output\_velero\_storage\_bucket\_name) | The name the container within the Velero storage account used to store Velero backups. |
+| <a name="output_thanos_identity_client_id"></a> [thanos\_identity\_client\_id](#output\_thanos\_identity\_client\_id) | The client ID of the Thanos user-assigned managed identity.                            |
+| <a name="output_thanos_identity_id"></a> [thanos\_identity\_id](#output\_thanos\_identity\_id) | The Azure resource ID of the Thanos user-assigned managed identity.                    |
+| <a name="output_thanos_storage_account_id"></a> [thanos\_storage\_account\_id](#output\_thanos\_storage\_account\_id) | The ID of the Thanos storage account.                                                  |
+| <a name="output_thanos_storage_account_name"></a> [thanos\_storage\_account\_name](#output\_thanos\_storage\_account\_name) | The name of the Azure storage account used to store Thanos backups.                    |
+| <a name="output_thanos_storage_bucket_name"></a> [thanos\_storage\_bucket\_name](#output\_thanos\_storage\_bucket\_name) | The name the container within the Thanos storage account used to store Thanos backups. |
+
 <!-- END_TF_DOCS -->
 
 ## History
 
-| Date       | Release | Change                                                                                                              |
-| ---------- | ------- | ------------------------------------------------------------------------------------------------------------------- |
-| 2025-01-25 | v1.0.0  | initial commit                                                                                                      |
-| 2025-10-01 | v2.0.1  | Uncomment the custom role assignments for Velero disk & snapshot management                                         |
-| 2025-10-20 | v2.0.2  | Pin minimum version of azurerm to 4.49.0                                                                            |
-| 2025-12-24 | v2.0.3  | Federated identity credential setup for Velero                                                                      |
-| 2026-01-06 | v2.0.4  | Add additional permissions for velero operations                                                                    |
-| 2026-01-08 | v2.0.5  | Federated identity credential setup for Cert Manager                                                                |
-| 2026-01-09 | v2.0.6  | Define variables to pass oidc issuer url Cert Manager workload identity                                             |
-| 2026-04-29 | v3.0.0  | Add ingress_host variable. Fix service principal web redirect URI                  |
-| 2026-05-06 | v3.1.0  | Add API permissions to argo-workflows & grafana application registrations                 |
+| Date       | Release | Change                                                                      |
+|------------|---------|-----------------------------------------------------------------------------|
+| 2025-01-25 | v1.0.0  | initial commit                                                              |
+| 2025-10-01 | v2.0.1  | Uncomment the custom role assignments for Velero disk & snapshot management |
+| 2025-10-20 | v2.0.2  | Pin minimum version of azurerm to 4.49.0                                    |
+| 2025-12-24 | v2.0.3  | Federated identity credential setup for Velero                              |
+| 2026-01-06 | v2.0.4  | Add additional permissions for velero operations                            |
+| 2026-01-08 | v2.0.5  | Federated identity credential setup for Cert Manager                        |
+| 2026-01-09 | v2.0.6  | Define variables to pass oidc issuer url Cert Manager workload identity     |
+| 2026-04-29 | v3.0.0  | Add ingress_host variable. Fix service principal web redirect URI           |
+| 2026-05-06 | v3.1.0  | Add API permissions to argo-workflows & grafana application registrations   |
+| 2026-06-12 | v3.1.1  | Storage Account and Federated Identity Credential for Thanos                |
