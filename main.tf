@@ -21,7 +21,7 @@ module "backup_rg" {
   tags = local.tags
 }
 
-# Creates the platform-rg Azure resource group and the nessessary platform components within it.
+# Creates the platform-rg Azure resource group and the necessary platform components within it.
 #
 # ./modules/platform-rg
 #

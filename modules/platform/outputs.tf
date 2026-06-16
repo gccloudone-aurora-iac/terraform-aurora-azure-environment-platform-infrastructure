@@ -49,3 +49,32 @@ output "argo_workflows_primary_blob_endpoint" {
   description = "The primary blob endpoint of the workflows storage account."
   value       = module.argo_workflows_storage_account.primary_blob_endpoint
 }
+
+##############
+### Thanos ###
+##############
+
+output "thanos_identity_id" {
+  description = "The Azure resource ID of the thanos user-assigned managed identity."
+  value       = azurerm_user_assigned_identity.thanos-id.id
+}
+
+output "thanos_identity_client_id" {
+  description = "The client ID of the thanos user-assigned managed identity."
+  value       = azurerm_user_assigned_identity.thanos-id.client_id
+}
+
+output "thanos_storage_account_id" {
+  description = "The ID of the Thanos storage account."
+  value       = module.thanos_storage_account.id
+}
+
+output "thanos_storage_account_name" {
+  description = "The name of the Thanos storage account."
+  value       = module.thanos_storage_account.name
+}
+
+output "thanos_storage_bucket_name" {
+  description = "The name the container within the thanos storage account used to store Thanos data (TDSB blocks from Prometheus)."
+  value       = local.thanos_sa_container_name
+}
