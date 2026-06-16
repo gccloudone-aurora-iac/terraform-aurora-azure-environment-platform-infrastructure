@@ -43,7 +43,7 @@ resource "azurerm_federated_identity_credential" "thanos-fed-id" {
   name                = "${module.azure_resource_names.managed_identity_name}-fed-thanos"
   audience = ["api://AzureADTokenExchange"]
   issuer              = var.oidc_issuer_url
-  subject             = "system:serviceaccount:${local.prom_namespace}:${local.prom_sa}"
+  subject             = "system:serviceaccount:prometheus-system:kube-prometheus-stack-prometheus""
   parent_id           = azurerm_user_assigned_identity.thanos-id.id
   resource_group_name = azurerm_resource_group.platform.name
 }
