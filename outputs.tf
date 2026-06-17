@@ -111,3 +111,32 @@ output "kubecost_sp" {
   description = "Azure service principal used to access accurate Microsoft Azure billing data."
   value       = module.kubecost_sp
 }
+
+##############
+### Thanos ###
+##############
+
+output "thanos_identity_id" {
+  description = "The Azure resource ID of the thanos user-assigned managed identity."
+  value       = module.platform_rg.thanos_identity_id
+}
+
+output "thanos_identity_client_id" {
+  description = "The client ID of the thanos user-assigned managed identity."
+  value       = module.platform_rg.thanos_identity_client_id
+}
+
+output "thanos_storage_account_id" {
+  description = "The ID of the Thanos storage account."
+  value       = module.platform_rg.thanos_storage_account_id
+}
+
+output "thanos_storage_account_name" {
+  description = "The name of the Thanos storage account."
+  value       = module.platform_rg.thanos_storage_account_name
+}
+
+output "thanos_storage_bucket_name" {
+  description = "The name the container within the thanos storage account used to store Thanos data (TDSB blocks from Prometheus)."
+  value       = module.platform_rg.thanos_storage_bucket_name
+}
