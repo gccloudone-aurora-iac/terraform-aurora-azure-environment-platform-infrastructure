@@ -98,4 +98,4 @@ Examples for this module along with various configurations can be found in the [
 | 2026-01-09 | v2.0.6  | Define variables to pass oidc issuer url Cert Manager workload identity     |
 | 2026-04-29 | v3.0.0  | Add ingress_host variable. Fix service principal web redirect URI           |
 | 2026-05-06 | v3.1.0  | Add API permissions to argo-workflows & grafana application registrations   |
-| 2026-06-12 | v3.1.1  | Storage Account and Federated Identity Credential for Thanos                |
+| 2026-06-12 | v3.2.0  | Storage Account and Federated Identity Credential for Thanos                |
