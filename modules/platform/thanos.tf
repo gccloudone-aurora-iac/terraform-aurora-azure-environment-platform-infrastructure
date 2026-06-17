@@ -43,7 +43,7 @@ resource "azurerm_federated_identity_credential" "thanos-fed-id" {
   name                = "${module.azure_resource_names.managed_identity_name}-fed-thanos"
   audience = ["api://AzureADTokenExchange"]
   issuer              = var.oidc_issuer_url
-  subject             = "system:serviceaccount:prometheus-system:kube-prometheus-stack-prometheus""
+  subject             = "system:serviceaccount:prometheus-system:kube-prometheus-stack-prometheus"
   parent_id           = azurerm_user_assigned_identity.thanos-id.id
   resource_group_name = azurerm_resource_group.platform.name
 }
@@ -53,6 +53,6 @@ resource "azurerm_federated_identity_credential" "thanos-fed-id" {
 # https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment
 resource "azurerm_role_assignment" "thanos_blob" {
   scope                = module.thanos_storage_account.id
-  role_definition_name = "Blob Storage Contributor"
+  role_definition_name = "Storage Blob Data Contributor"
   principal_id         = azurerm_user_assigned_identity.thanos-id.principal_id
 }
