@@ -9,7 +9,7 @@ module "thanos_storage_account" {
 
   azure_resource_attributes = var.azure_resource_attributes
   naming_convention         = var.naming_convention
-  user_defined              = "THANOS"
+  user_defined              = "THAN"
 
   resource_group_name = azurerm_resource_group.platform.name
 
