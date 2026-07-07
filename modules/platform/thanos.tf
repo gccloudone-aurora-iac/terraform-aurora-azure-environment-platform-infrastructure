@@ -56,3 +56,31 @@ resource "azurerm_role_assignment" "thanos_blob" {
   role_definition_name = "Storage Blob Data Contributor"
   principal_id         = azurerm_user_assigned_identity.thanos-id.principal_id
 }
+
+
+# Thanos Compactor and Store-Gateway federated ID
+
+# Create a trust and binds to the above UAMI to federate for the thanos compactor
+# Match on subject is required
+# https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/federated_identity_credential
+resource "azurerm_federated_identity_credential" "thanos-compactor-fed-id" {
+  name                = "${module.azure_resource_names.managed_identity_name}-fed-thanos-compactor"
+  audience = ["api://AzureADTokenExchange"]
+  issuer              = var.oidc_issuer_url
+  subject             = "system:serviceaccount:thanos-system:thanos-compactor-default"
+  parent_id           = azurerm_user_assigned_identity.thanos-id.id
+  resource_group_name = azurerm_resource_group.platform.name
+}
+
+
+# Create a trust and binds to the above UAMI to federate for the thanos store gateway
+# Match on subject is required
+# https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/federated_identity_credential
+resource "azurerm_federated_identity_credential" "thanos-storegateway-fed-id" {
+  name                = "${module.azure_resource_names.managed_identity_name}-fed-thanos-storegateway"
+  audience = ["api://AzureADTokenExchange"]
+  issuer              = var.oidc_issuer_url
+  subject             = "system:serviceaccount:thanos-system:thanos-storegateway-default"
+  parent_id           = azurerm_user_assigned_identity.thanos-id.id
+  resource_group_name = azurerm_resource_group.platform.name
+}
