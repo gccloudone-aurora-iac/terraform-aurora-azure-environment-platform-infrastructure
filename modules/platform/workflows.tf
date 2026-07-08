@@ -24,5 +24,9 @@ module "argo_workflows_storage_account" {
     }
   ]
 
+  network_rules {
+    default_action             = "Deny"
+  }
+
   tags = var.tags
 }
