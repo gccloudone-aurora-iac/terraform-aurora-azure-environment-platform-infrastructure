@@ -99,5 +99,6 @@ Examples for this module along with various configurations can be found in the [
 | 2026-04-29 | v3.0.0  | Add ingress_host variable. Fix service principal web redirect URI           |
 | 2026-05-06 | v3.1.0  | Add API permissions to argo-workflows & grafana application registrations   |
 | 2026-06-12 | v3.2.0  | Storage Account and Federated Identity Credential for Thanos                |
-| 2026-07-07 | v3.2.1  | Federated Identity Credential for Thanos Compactor and Store gateway        |
-| 2026-07-08 | v3.2.2  | Set default action from allow to deny for network rules on storage accounts |
+| 2026-06-25 | v3.2.1  | Fix Thanos root level outputs                                               |
+| 2026-07-07 | v3.3.0  | Federated Identity Credential for Thanos Compactor and Store gateway        |
+| 2026-07-08 | v3.3.1  | Set default action from allow to deny for network rules on storage accounts |
