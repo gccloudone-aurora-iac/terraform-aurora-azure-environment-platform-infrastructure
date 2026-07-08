@@ -5,7 +5,7 @@
 
 # Create a storage account
 module "thanos_storage_account" {
-  source = "git::https://github.com/gccloudone-aurora-iac/terraform-azure-storage-account.git?ref=v2.0.1"
+  source = "git::https://github.com/gccloudone-aurora-iac/terraform-azure-storage-account.git?ref=v2.0.2"
 
   azure_resource_attributes = var.azure_resource_attributes
   naming_convention         = var.naming_convention
@@ -21,10 +21,6 @@ module "thanos_storage_account" {
       private_dns_zone_id = var.dns_zone_ids.blob_storage
     }
   ]
-
-  network_rules {
-    default_action             = "Deny"
-  }
 
   account_replication_type = "ZRS"
   containers               = [local.thanos_sa_container_name]

@@ -3,7 +3,7 @@
 ############
 
 module "velero_storage_account" {
-  source = "git::https://github.com/gccloudone-aurora-iac/terraform-azure-storage-account.git?ref=v2.0.1"
+  source = "git::https://github.com/gccloudone-aurora-iac/terraform-azure-storage-account.git?ref=v2.0.2"
 
   azure_resource_attributes = var.azure_resource_attributes
   naming_convention         = var.naming_convention
@@ -19,10 +19,6 @@ module "velero_storage_account" {
       private_dns_zone_id = var.blob_storage_private_dns_zone_id
     }
   ]
-
-  network_rules {
-    default_action             = "Deny"
-  }
 
   account_replication_type = "RAGZRS"
   containers               = [local.velero_sa_container_name]
