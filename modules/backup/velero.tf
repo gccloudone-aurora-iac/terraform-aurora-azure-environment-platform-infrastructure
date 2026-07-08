@@ -20,6 +20,10 @@ module "velero_storage_account" {
     }
   ]
 
+  network_rules {
+    default_action             = "Deny"
+  }
+
   account_replication_type = "RAGZRS"
   containers               = [local.velero_sa_container_name]
 

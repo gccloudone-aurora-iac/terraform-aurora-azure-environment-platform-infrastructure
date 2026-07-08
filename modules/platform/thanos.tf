@@ -22,6 +22,10 @@ module "thanos_storage_account" {
     }
   ]
 
+  network_rules {
+    default_action             = "Deny"
+  }
+
   account_replication_type = "ZRS"
   containers               = [local.thanos_sa_container_name]
   tags                     = var.tags
