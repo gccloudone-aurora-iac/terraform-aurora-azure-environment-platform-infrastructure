@@ -20,7 +20,7 @@ module "velero_storage_account" {
     }
   ]
 
-  account_replication_type = "RAGZRS"
+  account_replication_type = "LRS"
   containers               = [local.velero_sa_container_name]
 
   tags = var.tags
